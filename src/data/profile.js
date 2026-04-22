@@ -176,7 +176,7 @@ export const profileData = {
         {
           school: 'University of California, Merced',
           degree: 'Master of Science - MS, Computer Science',
-          period: '2025 - 2027',
+          period: '2025 - 2027 ',
         },
         {
           school: 'Shenzhen University',
