@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { CursorFollower } from './components/CursorFollower';
 import { NavBar } from './components/NavBar';
 import { profileData } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
@@ -30,7 +31,12 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen overflow-x-clip">
+      <CursorFollower />
+
+      <div className="tech-atmosphere" aria-hidden="true" />
+      <div className="tech-grid" aria-hidden="true" />
+
       <NavBar
         branding={profileData.branding}
         navItems={profileData.navigation}
@@ -39,7 +45,7 @@ function App() {
         onToggleTheme={toggleTheme}
       />
 
-      <main>
+      <main className="relative">
         <HeroSection hero={profileData.hero} links={profileData.links} />
         <AboutSection data={profileData.sections.about} />
         <ExperienceSection data={profileData.sections.experience} />

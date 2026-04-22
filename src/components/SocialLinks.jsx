@@ -1,3 +1,5 @@
+import { resolveLink } from '../utils/links';
+
 const ICONS = {
   github: (
     <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.6-1.4-5.6-6.1 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3 .8.8 1.2 1.8 1.2 3.1 0 4.7-2.9 5.8-5.6 6.1.4.4.8 1.1.8 2.3v3.3c0 .4.2.7.8.6A12 12 0 0 0 12 .5Z" />
@@ -14,25 +16,55 @@ export function SocialLinks({ links, className = '' }) {
   const items = [
     { key: 'github', href: links.github, label: 'GitHub' },
     { key: 'linkedin', href: links.linkedin, label: 'LinkedIn' },
-    { key: 'email', href: `mailto:${links.email}`, label: 'Email' },
+    { key: 'email', href: links.email, label: 'Email', type: 'email' },
   ];
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {items.map((item) => (
-        <a
-          key={item.key}
-          href={item.href}
-          target={item.key === 'email' ? undefined : '_blank'}
-          rel={item.key === 'email' ? undefined : 'noreferrer'}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-panel text-muted transition hover:border-accent hover:text-accent"
-          aria-label={item.label}
-        >
-          <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
-            {ICONS[item.key]}
-          </svg>
-        </a>
-      ))}
+      {items.map((item) => {
+        const link = resolveLink(item.href, {
+          type: item.type,
+          disableIfPlaceholder: true,
+        });
+
+        const baseClass =
+          'cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border bg-panel/60 text-muted transition duration-300';
+
+        if (link.isDisabled) {
+          return (
+            <span
+              key={item.key}
+              className={`${baseClass} cursor-not-allowed border-border/40 opacity-50`}
+              aria-label={`${item.label} link unavailable`}
+              title={
+                link.isMissing
+                  ? `Missing ${item.label} in src/data/profile.js`
+                  : `Replace placeholder ${item.label} link in src/data/profile.js`
+              }
+            >
+              <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+                {ICONS[item.key]}
+              </svg>
+            </span>
+          );
+        }
+
+        return (
+          <a
+            key={item.key}
+            href={link.href}
+            target={link.isExternal ? '_blank' : undefined}
+            rel={link.isExternal ? 'noopener noreferrer' : undefined}
+            className={`${baseClass} border-border/70 hover:-translate-y-0.5 hover:border-accent/70 hover:text-accent hover:shadow-[0_0_25px_hsl(var(--accent)/0.26)]`}
+            aria-label={item.label}
+            title={item.label}
+          >
+            <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+              {ICONS[item.key]}
+            </svg>
+          </a>
+        );
+      })}
     </div>
   );
 }
