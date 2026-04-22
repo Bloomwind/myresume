@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 210 22% 98%;
+    --panel: 0 0% 100%;
+    --text: 222 47% 11%;
+    --muted: 217 12% 34%;
+    --border: 214 24% 88%;
+    --accent: 188 88% 31%;
+    --accent-strong: 188 88% 26%;
+  }
+
+  .dark {
+    --bg: 221 24% 10%;
+    --panel: 220 19% 14%;
+    --text: 216 20% 91%;
+    --muted: 217 12% 68%;
+    --border: 219 14% 25%;
+    --accent: 184 64% 52%;
+    --accent-strong: 184 64% 46%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px),
+      radial-gradient(circle at 20% 0%, hsl(var(--accent) / 0.07), transparent 45%);
+    background-size: 34px 34px, 34px 34px, 100% 100%;
+  }
+
+  ::selection {
+    background-color: hsl(var(--accent) / 0.18);
+    color: hsl(var(--text));
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
