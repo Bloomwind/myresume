@@ -23,11 +23,11 @@
   .dark {
     --bg: 0 0% 3%;
     --panel: 222 17% 7%;
-    --text: 210 20% 95%;
-    --muted: 214 12% 72%;
+    --text: 210 14% 91%;
+    --muted: 214 10% 66%;
     --border: 217 14% 18%;
-    --accent: 188 92% 62%;
-    --accent-strong: 188 92% 54%;
+    --accent: 192 54% 47%;
+    --accent-strong: 192 50% 40%;
   }
 
   html {

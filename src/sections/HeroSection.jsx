@@ -12,7 +12,7 @@ export function HeroSection({ hero, links, ui }) {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1fr_360px] lg:gap-12 lg:px-8">
         <div>
           <Reveal>
-            <p className="mb-6 inline-flex rounded-full border border-accent/30 bg-panel/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent/90 backdrop-blur-sm">
+            <p className="mb-6 inline-flex rounded-full border border-accent/28 bg-panel/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent/78 backdrop-blur-sm">
               {hero.badge}
             </p>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-text md:text-6xl md:leading-[1.06]">
@@ -21,7 +21,7 @@ export function HeroSection({ hero, links, ui }) {
           </Reveal>
 
           <Reveal delay={80}>
-            <p className="mt-5 max-w-3xl font-display text-lg font-medium text-accent md:text-2xl">
+            <p className="mt-5 max-w-3xl font-display text-lg font-medium text-text/86 md:text-2xl">
               {hero.headline}
             </p>
           </Reveal>
