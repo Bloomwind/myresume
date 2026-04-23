@@ -2,7 +2,7 @@ import { ButtonLink } from '../components/ButtonLink';
 import { Reveal } from '../components/Reveal';
 import { SocialLinks } from '../components/SocialLinks';
 
-export function HeroSection({ hero, links }) {
+export function HeroSection({ hero, links, ui }) {
   const focus = hero.currentFocus;
 
   return (
@@ -39,6 +39,7 @@ export function HeroSection({ hero, links }) {
                 style={button.style}
                 type={button.type}
                 allowPlaceholder={button.type === 'resume'}
+                messages={ui?.linkStatus}
               />
             ))}
           </Reveal>
@@ -49,7 +50,7 @@ export function HeroSection({ hero, links }) {
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
 
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted">{hero.socialTitle}</p>
-            <SocialLinks links={links} />
+            <SocialLinks links={links} labels={ui?.social} messages={ui?.linkStatus} />
 
             {focus?.items?.length ? (
               <div className="mt-6 border-t border-border/60 pt-5">

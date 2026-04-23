@@ -1,6 +1,10 @@
 import { resolveLink } from '../utils/links';
 
-function ActionLink({ label, href }) {
+function fillLabelTemplate(template, label) {
+  return template?.replace('{label}', label);
+}
+
+function ActionLink({ label, href, messages }) {
   const link = resolveLink(href, { disableIfPlaceholder: true });
 
   const baseClass =
@@ -11,7 +15,11 @@ function ActionLink({ label, href }) {
       <span
         className={`${baseClass} cursor-not-allowed border-border/40 bg-panel/40 text-muted opacity-60`}
         aria-disabled="true"
-        title={link.isMissing ? `Missing ${label} link` : `Replace placeholder ${label} link`}
+        title={
+          link.isMissing
+            ? fillLabelTemplate(messages?.missingNamed, label) ?? messages?.missingGeneric
+            : fillLabelTemplate(messages?.placeholderNamed, label) ?? messages?.placeholderGeneric
+        }
       >
         {label}
       </span>
@@ -31,9 +39,9 @@ function ActionLink({ label, href }) {
   );
 }
 
-export function ProjectCard({ project, actionLabels }) {
-  const githubLabel = actionLabels?.github ?? 'GitHub';
-  const demoLabel = actionLabels?.demo ?? 'Demo';
+export function ProjectCard({ project, actionLabels, linkMessages }) {
+  const githubLabel = actionLabels?.github;
+  const demoLabel = actionLabels?.demo;
 
   return (
     <article className="cursor-hover-target group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-panel/72 p-6 shadow-soft backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_10px_28px_-18px_hsl(var(--accent)/0.28)]">
@@ -55,8 +63,8 @@ export function ProjectCard({ project, actionLabels }) {
       </div>
 
       <div className="mt-auto flex flex-wrap gap-3 pt-7">
-        <ActionLink label={githubLabel} href={project.github} />
-        {project.demo ? <ActionLink label={demoLabel} href={project.demo} /> : null}
+        <ActionLink label={githubLabel} href={project.github} messages={linkMessages} />
+        {project.demo ? <ActionLink label={demoLabel} href={project.demo} messages={linkMessages} /> : null}
       </div>
     </article>
   );

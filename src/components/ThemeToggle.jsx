@@ -1,12 +1,14 @@
-export function ThemeToggle({ theme, onToggle }) {
+export function ThemeToggle({ theme, onToggle, labels }) {
   const isDark = theme === 'dark';
+  const ariaLabel = isDark ? labels?.toLight : labels?.toDark;
 
   return (
     <button
       type="button"
       onClick={onToggle}
       className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/72 text-text transition duration-300 hover:-translate-y-0.5 hover:border-accent/65 hover:text-accent"
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={ariaLabel}
+      title={ariaLabel}
     >
       {isDark ? (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">

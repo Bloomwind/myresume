@@ -2,7 +2,7 @@ import { ButtonLink } from '../components/ButtonLink';
 import { SectionShell } from '../components/SectionShell';
 import { Reveal } from '../components/Reveal';
 
-export function ContactSection({ data }) {
+export function ContactSection({ data, ui }) {
   return (
     <SectionShell id="contact" badge={data.badge} title={data.title}>
       <Reveal>
@@ -16,6 +16,7 @@ export function ContactSection({ data }) {
             label={button.label}
             style={button.style}
             type={button.type}
+            messages={ui?.linkStatus}
           />
         ))}
       </Reveal>

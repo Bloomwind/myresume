@@ -12,11 +12,15 @@ const ICONS = {
   ),
 };
 
-export function SocialLinks({ links, className = '' }) {
+function fillLabelTemplate(template, label) {
+  return template?.replace('{label}', label);
+}
+
+export function SocialLinks({ links, labels, messages, className = '' }) {
   const items = [
-    { key: 'github', href: links.github, label: 'GitHub' },
-    { key: 'linkedin', href: links.linkedin, label: 'LinkedIn' },
-    { key: 'email', href: links.email, label: 'Email', type: 'email' },
+    { key: 'github', href: links.github, label: labels?.github },
+    { key: 'linkedin', href: links.linkedin, label: labels?.linkedin },
+    { key: 'email', href: links.email, label: labels?.email, type: 'email' },
   ];
 
   return (
@@ -31,15 +35,17 @@ export function SocialLinks({ links, className = '' }) {
           'cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border bg-panel/72 text-muted transition duration-300';
 
         if (link.isDisabled) {
+          const unavailableSuffix = messages?.unavailableSuffix ? ` ${messages.unavailableSuffix}` : '';
+          const missingTitle = fillLabelTemplate(messages?.missingNamed, item.label);
+          const placeholderTitle = fillLabelTemplate(messages?.placeholderNamed, item.label);
+
           return (
             <span
               key={item.key}
               className={`${baseClass} cursor-not-allowed border-border/40 opacity-50`}
-              aria-label={`${item.label} link unavailable`}
+              aria-label={`${item.label}${unavailableSuffix}`}
               title={
-                link.isMissing
-                  ? `Missing ${item.label} in src/data/profile.js`
-                  : `Replace placeholder ${item.label} link in src/data/profile.js`
+                link.isMissing ? missingTitle ?? messages?.missingGeneric : placeholderTitle ?? messages?.placeholderGeneric
               }
             >
               <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">

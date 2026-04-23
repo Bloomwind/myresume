@@ -55,13 +55,13 @@ function App() {
       />
 
       <main className="relative">
-        <HeroSection hero={profileData.hero} links={profileData.links} />
+        <HeroSection hero={profileData.hero} links={profileData.links} ui={profileData.ui} />
         <AboutSection data={profileData.sections.about} />
         <ExperienceSection data={profileData.sections.experience} />
-        <ProjectsSection data={profileData.sections.projects} />
+        <ProjectsSection data={profileData.sections.projects} ui={profileData.ui} />
         <SkillsSection data={profileData.sections.skills} />
         <EducationSection data={profileData.sections.education} />
-        <ContactSection data={profileData.sections.contact} />
+        <ContactSection data={profileData.sections.contact} ui={profileData.ui} />
       </main>
 
       <FooterSection text={profileData.footer.text} backToTopLabel={profileData.ui.backToTopLabel} />

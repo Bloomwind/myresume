@@ -13,6 +13,49 @@ const links = {
   email: 'haohenghuang@ucmerced.edu',
 };
 
+function isPlainObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+function mergeLocalizedValue(baseValue, overrideValue) {
+  if (Array.isArray(baseValue)) {
+    if (!Array.isArray(overrideValue) || overrideValue.length === 0) {
+      return baseValue;
+    }
+
+    const maxLength = Math.max(baseValue.length, overrideValue.length);
+    return Array.from({ length: maxLength }, (_, index) =>
+      mergeLocalizedValue(baseValue[index], overrideValue[index]),
+    ).filter((item) => item !== undefined);
+  }
+
+  if (isPlainObject(baseValue)) {
+    if (!isPlainObject(overrideValue)) {
+      return baseValue;
+    }
+
+    const merged = { ...baseValue };
+    Object.keys(overrideValue).forEach((key) => {
+      merged[key] = mergeLocalizedValue(baseValue[key], overrideValue[key]);
+    });
+    return merged;
+  }
+
+  if (overrideValue === undefined || overrideValue === null || overrideValue === '') {
+    return baseValue;
+  }
+
+  return overrideValue;
+}
+
+function getLocalizedBase(language) {
+  if (language === 'zh') {
+    return mergeLocalizedValue(enLocale, zhLocale);
+  }
+
+  return enLocale;
+}
+
 function resolveLink(linkKey) {
   switch (linkKey) {
     case 'projects':
@@ -57,13 +100,9 @@ function buildProfile(localeData) {
   };
 }
 
-const localizedProfiles = {
-  en: buildProfile(enLocale),
-  zh: buildProfile(zhLocale),
-};
-
 export function getProfileData(language = DEFAULT_LANGUAGE) {
-  return localizedProfiles[language] ?? localizedProfiles[DEFAULT_LANGUAGE];
+  const normalizedLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : DEFAULT_LANGUAGE;
+  return buildProfile(getLocalizedBase(normalizedLanguage));
 }
 
 export { links as profileLinks };

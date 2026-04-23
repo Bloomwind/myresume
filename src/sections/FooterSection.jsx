@@ -1,4 +1,4 @@
-export function FooterSection({ text, backToTopLabel = 'Back to top ↑' }) {
+export function FooterSection({ text, backToTopLabel }) {
   return (
     <footer className="relative border-t border-border/60 py-8">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />

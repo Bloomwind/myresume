@@ -19,15 +19,13 @@ export function EducationSection({ data }) {
                     <div className="mt-2 space-y-1 text-xs tracking-[0.08em] text-muted/90 md:text-sm md:tracking-normal">
                       {entry.department ? (
                         <p>
-                          <span className="font-medium text-text/90">
-                            {labels.department ?? 'Department'}:
-                          </span>{' '}
+                          <span className="font-medium text-text/90">{labels.department}:</span>{' '}
                           {entry.department}
                         </p>
                       ) : null}
                       {entry.advisor ? (
                         <p>
-                          <span className="font-medium text-text/90">{labels.advisor ?? 'Advisor'}:</span>{' '}
+                          <span className="font-medium text-text/90">{labels.advisor}:</span>{' '}
                           {entry.advisor}
                         </p>
                       ) : null}
@@ -40,7 +38,7 @@ export function EducationSection({ data }) {
               {entry.coursework?.length ? (
                 <div className="mt-4 border-t border-border/60 pt-4">
                   <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
-                    {labels.coursework ?? 'Relevant Coursework'}
+                    {labels.coursework}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {entry.coursework.map((item) => (

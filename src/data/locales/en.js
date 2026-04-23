@@ -15,6 +15,23 @@ export const enLocale = {
     goToTopLabel: 'Go to top',
     toggleMenuLabel: 'Toggle menu',
     languageToggleLabel: 'Switch language',
+    themeToggle: {
+      toLight: 'Switch to light mode',
+      toDark: 'Switch to dark mode',
+    },
+    social: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'Email',
+    },
+    linkStatus: {
+      unavailableSuffix: 'link unavailable',
+      missingGeneric: 'Missing link in profile data',
+      placeholderGeneric: 'Replace placeholder link in src/data/profile.js',
+      missingNamed: 'Missing {label} link in src/data/profile.js',
+      placeholderNamed: 'Replace placeholder {label} link in src/data/profile.js',
+      placeholderBadge: 'Placeholder',
+    },
     languageShort: {
       en: 'EN',
       zh: '中',

@@ -11,12 +11,17 @@ const STYLE_MAP = {
     'cursor-not-allowed border border-border/40 bg-panel/40 text-muted opacity-70',
 };
 
+function fillLabelTemplate(template, label) {
+  return template?.replace('{label}', label);
+}
+
 export function ButtonLink({
   href,
   label,
   style = 'primary',
   type = 'url',
   allowPlaceholder = false,
+  messages,
   className = '',
 }) {
   const link = resolveLink(href, {
@@ -34,7 +39,7 @@ export function ButtonLink({
       <span
         className={`${common} ${styleClass} ${className}`}
         aria-disabled="true"
-        title={link.isMissing ? 'Missing link in profile data' : 'Replace placeholder link in src/data/profile.js'}
+        title={link.isMissing ? messages?.missingGeneric : messages?.placeholderGeneric}
       >
         {label}
       </span>
@@ -51,13 +56,13 @@ export function ButtonLink({
       rel={link.isExternal ? 'noopener noreferrer' : undefined}
       aria-label={label}
       download={isPdf && !link.isExternal ? '' : undefined}
-      title={link.isPlaceholder ? 'Placeholder link: update in src/data/profile.js' : undefined}
+      title={link.isPlaceholder ? fillLabelTemplate(messages?.placeholderNamed, label) : undefined}
     >
       {label}
       {link.isExternal ? <span className="text-xs opacity-75">↗</span> : null}
       {link.isPlaceholder ? (
         <span className="rounded-sm border border-border/60 px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
-          Placeholder
+          {messages?.placeholderBadge}
         </span>
       ) : null}
     </a>

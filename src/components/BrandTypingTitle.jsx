@@ -7,7 +7,7 @@ export function BrandTypingTitle({ branding }) {
   );
 
   const hasSequence = sequence.length > 0;
-  const finalText = branding.siteBrandText || sequence.at(-1) || 'portfolio';
+  const finalText = branding.siteBrandText || sequence.at(-1) || 'haoheng_huang.ai';
 
   const [displayText, setDisplayText] = useState(() => (hasSequence ? '> ' : finalText));
   const [isComplete, setIsComplete] = useState(() => !hasSequence);

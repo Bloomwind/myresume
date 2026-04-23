@@ -1,8 +1,8 @@
 export const zhLocale = {
   seo: {
-    title: '黄浩恒 | AI 系统与机器学习工程',
+    title: '黄皓恒 | AI 系统与机器学习工程',
     description:
-      '黄浩恒的个人作品集，聚焦于 LLM、多模态 AI、计算机视觉与可落地的 AI 系统工程。',
+      '黄皓恒的个人作品集，聚焦于 LLM、多模态 AI、计算机视觉与可落地的 AI 系统工程。',
   },
   branding: {
     initials: 'HH',
@@ -15,6 +15,23 @@ export const zhLocale = {
     goToTopLabel: '返回顶部',
     toggleMenuLabel: '切换菜单',
     languageToggleLabel: '切换语言',
+    themeToggle: {
+      toLight: '切换到浅色模式',
+      toDark: '切换到深色模式',
+    },
+    social: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: '邮箱',
+    },
+    linkStatus: {
+      unavailableSuffix: '链接暂不可用',
+      missingGeneric: '资料配置中缺少链接',
+      placeholderGeneric: '请在 src/data/profile.js 中替换占位链接',
+      missingNamed: 'src/data/profile.js 中缺少 {label} 链接',
+      placeholderNamed: '请在 src/data/profile.js 中替换 {label} 占位链接',
+      placeholderBadge: '占位',
+    },
     languageShort: {
       en: 'EN',
       zh: '中',
@@ -32,7 +49,7 @@ export const zhLocale = {
   hero: {
     badge: '开放 2026 夏季机会',
     socialTitle: '联系方式',
-    name: '黄浩恒',
+    name: '黄皓恒',
     headline: 'AI Systems | LLMs | Multimodal AI | Computer Vision',
     intro: '我喜欢把 AI 系统从原型推进到真实可用的工作流，让模型能力真正服务于实际场景。',
     currentFocus: {
@@ -48,9 +65,9 @@ export const zhLocale = {
   sections: {
     about: {
       badge: '关于我',
-      title: '我的研究兴趣与工程方式',
+      title: '我在做什么，以及我为什么做',
       summary:
-        '我是一名计算机科学研究生，长期关注“能真正被使用”的 AI 系统，而不是只停留在演示层面的模型。对我来说，最有价值的问题通常出现在机器学习、软件系统与实际部署交叉的地方。\n\n我主要关注大语言模型、多模态 AI、计算机视觉、智能自动化和面向应用的 AI 系统。我喜欢从整体系统角度思考问题，关注不同模块如何协同工作，而不仅仅是单个模型的指标表现。目前我正在攻读硕士学位，并积极寻求 2026 年夏季 AI / 机器学习 / 软件工程方向的实习机会。',
+        '我是一名计算机科学研究生，比较在意的是 AI 系统能不能真正落地，而不只是停留在演示里。对我来说，最有意思的问题往往出现在机器学习、软件系统和实际部署交叉的地方。\n\n我主要关注大语言模型、多模态 AI、计算机视觉、智能自动化以及面向应用的 AI 系统。我喜欢从整体系统的角度看问题，思考模型、工程实现和使用场景如何真正配合起来。目前我正在攻读硕士学位，也在寻找 2026 年夏季 AI / 机器学习 / 软件工程方向的实习机会。',
     },
     experience: {
       badge: '研究与实践',
@@ -243,6 +260,6 @@ export const zhLocale = {
     },
   },
   footer: {
-    text: '黄浩恒 - AI 系统 / 机器学习工程方向',
+    text: '黄皓恒 - AI 系统 / 机器学习工程方向',
   },
 };
