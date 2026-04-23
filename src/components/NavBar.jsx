@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import { BrandTypingTitle } from './BrandTypingTitle';
+import { LanguageToggle } from './LanguageToggle';
 import { ThemeToggle } from './ThemeToggle';
 
-export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
+export function NavBar({
+  branding,
+  navItems,
+  activeId,
+  theme,
+  onToggleTheme,
+  language,
+  onToggleLanguage,
+  ui,
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -10,9 +20,13 @@ export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/22 to-transparent" />
       <nav
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8"
-        aria-label="Main navigation"
+        aria-label={ui?.navAriaLabel ?? 'Main navigation'}
       >
-        <a href="#home" className="cursor-hover-target inline-flex items-center gap-3" aria-label="Go to top">
+        <a
+          href="#home"
+          className="cursor-hover-target inline-flex items-center gap-3"
+          aria-label={ui?.goToTopLabel ?? 'Go to top'}
+        >
           <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md border border-accent/30 bg-panel/92 font-display text-sm font-semibold text-text shadow-[0_0_14px_hsl(var(--accent)/0.1)]">
             <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent" />
             {branding.initials}
@@ -49,12 +63,13 @@ export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
         </div>
 
         <div className="flex items-center gap-2">
+          <LanguageToggle language={language} labels={ui} onToggle={onToggleLanguage} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
             className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/72 text-text transition hover:border-accent/65 hover:text-accent md:hidden"
-            aria-label="Toggle menu"
+            aria-label={ui?.toggleMenuLabel ?? 'Toggle menu'}
             aria-expanded={open}
           >
             <span className="text-xl leading-none">{open ? '×' : '≡'}</span>

@@ -2,6 +2,8 @@ import { SectionShell } from '../components/SectionShell';
 import { Reveal } from '../components/Reveal';
 
 export function EducationSection({ data }) {
+  const labels = data.labels ?? {};
+
   return (
     <SectionShell id="education" badge={data.badge} title={data.title}>
       <div className="grid gap-4">
@@ -17,12 +19,16 @@ export function EducationSection({ data }) {
                     <div className="mt-2 space-y-1 text-xs tracking-[0.08em] text-muted/90 md:text-sm md:tracking-normal">
                       {entry.department ? (
                         <p>
-                          <span className="font-medium text-text/90">Department:</span> {entry.department}
+                          <span className="font-medium text-text/90">
+                            {labels.department ?? 'Department'}:
+                          </span>{' '}
+                          {entry.department}
                         </p>
                       ) : null}
                       {entry.advisor ? (
                         <p>
-                          <span className="font-medium text-text/90">Advisor:</span> {entry.advisor}
+                          <span className="font-medium text-text/90">{labels.advisor ?? 'Advisor'}:</span>{' '}
+                          {entry.advisor}
                         </p>
                       ) : null}
                     </div>
@@ -33,7 +39,9 @@ export function EducationSection({ data }) {
 
               {entry.coursework?.length ? (
                 <div className="mt-4 border-t border-border/60 pt-4">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted">Relevant Coursework</p>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
+                    {labels.coursework ?? 'Relevant Coursework'}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {entry.coursework.map((item) => (
                       <span

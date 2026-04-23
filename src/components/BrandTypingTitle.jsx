@@ -67,7 +67,7 @@ export function BrandTypingTitle({ branding }) {
 
   return (
     <span className="inline-flex items-center gap-1 font-mono text-[12px] tracking-[0.08em] text-text sm:text-[13px]">
-      <span className="max-w-[13.5rem] truncate sm:max-w-[17rem]">{text}</span>
+      <span className="max-w-[8.5rem] truncate sm:max-w-[17rem]">{text}</span>
       <span className={`brand-caret ${hasSequence && !isComplete ? 'opacity-100' : 'opacity-0'}`} aria-hidden="true">
         _
       </span>

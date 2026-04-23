@@ -4,7 +4,7 @@ const STORAGE_KEY = 'hh-theme';
 
 function getInitialTheme() {
   if (typeof window === 'undefined') {
-    return 'light';
+    return 'dark';
   }
 
   const stored = localStorage.getItem(STORAGE_KEY);
@@ -12,7 +12,15 @@ function getInitialTheme() {
     return stored;
   }
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  try {
+    const hour = new Date().getHours();
+    if (hour >= 7 && hour < 18) {
+      return 'light';
+    }
+    return 'dark';
+  } catch {
+    return 'dark';
+  }
 }
 
 export function useTheme() {

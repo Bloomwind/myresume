@@ -6,13 +6,13 @@
 
 @layer base {
   :root {
-    --bg: 228 16% 8%;
-    --panel: 225 14% 11%;
-    --text: 210 18% 92%;
-    --muted: 214 12% 68%;
-    --border: 217 13% 24%;
-    --accent: 191 86% 56%;
-    --accent-strong: 191 86% 49%;
+    --bg: 210 45% 98%;
+    --panel: 0 0% 100%;
+    --text: 224 28% 14%;
+    --muted: 217 15% 40%;
+    --border: 215 30% 84%;
+    --accent: 196 84% 39%;
+    --accent-strong: 196 84% 33%;
 
     --grid-cursor-x: 50vw;
     --grid-cursor-y: 35vh;
@@ -75,7 +75,7 @@
     linear-gradient(90deg, hsl(var(--border) / 0.24) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(circle at 50% 35%, black 34%, transparent 82%);
-  opacity: 0.58;
+  opacity: 0.42;
 }
 
 .tech-grid::before,
@@ -116,6 +116,10 @@
 
 .grid-pointer-enabled .tech-grid::after {
   opacity: calc(var(--grid-cursor-opacity) * 0.9);
+}
+
+.dark .tech-grid {
+  opacity: 0.58;
 }
 
 .brand-caret {

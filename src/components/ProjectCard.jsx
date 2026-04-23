@@ -31,7 +31,10 @@ function ActionLink({ label, href }) {
   );
 }
 
-export function ProjectCard({ project }) {
+export function ProjectCard({ project, actionLabels }) {
+  const githubLabel = actionLabels?.github ?? 'GitHub';
+  const demoLabel = actionLabels?.demo ?? 'Demo';
+
   return (
     <article className="cursor-hover-target group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-panel/72 p-6 shadow-soft backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_10px_28px_-18px_hsl(var(--accent)/0.28)]">
       <div className="pointer-events-none absolute -right-24 -top-24 h-44 w-44 rounded-full bg-accent/7 blur-3xl transition duration-500 group-hover:bg-accent/12" />
@@ -52,8 +55,8 @@ export function ProjectCard({ project }) {
       </div>
 
       <div className="mt-auto flex flex-wrap gap-3 pt-7">
-        <ActionLink label="GitHub" href={project.github} />
-        {project.demo ? <ActionLink label="Demo" href={project.demo} /> : null}
+        <ActionLink label={githubLabel} href={project.github} />
+        {project.demo ? <ActionLink label={demoLabel} href={project.demo} /> : null}
       </div>
     </article>
   );

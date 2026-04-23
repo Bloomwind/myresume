@@ -29,13 +29,15 @@ npm run preview
 
 All profile text and links are centralized in:
 
-- `src/data/profile.js`
+- `src/data/profile.js` (shared links + locale composition)
+- `src/data/locales/en.js` (English content)
+- `src/data/locales/zh.js` (Simplified Chinese content)
 
-Update this file to change:
+Update locale files to change:
 
 - Hero copy
 - About/experience/projects/skills/education/contact content
-- Placeholder links for GitHub, LinkedIn, email, and resume path
+- Placeholder links for GitHub, LinkedIn, email, and resume path are in `src/data/profile.js`
 
 ## Resume + Social Placeholders
 
@@ -104,5 +106,5 @@ src/
 - Smooth scrolling
 - Responsive layout for mobile/tablet/desktop
 - Scroll reveal animations
-- Dark mode toggle (stored in localStorage)
+- Dark mode and language preference are both stored in localStorage
 - SEO title + meta description + favicon placeholder

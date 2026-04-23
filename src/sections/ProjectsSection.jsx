@@ -8,7 +8,7 @@ export function ProjectsSection({ data }) {
       <div className="grid gap-6 md:grid-cols-2">
         {data.entries.map((project, idx) => (
           <Reveal key={project.title} delay={idx * 90}>
-            <ProjectCard project={project} />
+            <ProjectCard project={project} actionLabels={data.actionLabels} />
           </Reveal>
         ))}
       </div>

@@ -18,7 +18,7 @@ export function ExperienceSection({ data }) {
                   </div>
                   <div className="text-sm text-muted md:text-right">
                     <p className="font-medium text-text/90">{entry.period}</p>
-                    <p>{entry.type}</p>
+                    {entry.type ? <p>{entry.type}</p> : null}
                   </div>
                 </div>
 

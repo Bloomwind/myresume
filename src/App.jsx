@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from 'react';
 import { GridPointerField } from './components/GridPointerField';
 import { NavBar } from './components/NavBar';
-import { profileData } from './data/profile';
+import { getProfileData } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
+import { useLanguage } from './hooks/useLanguage';
 import { useRevealOnScroll } from './hooks/useRevealOnScroll';
 import { useTheme } from './hooks/useTheme';
 import { AboutSection } from './sections/AboutSection';
@@ -16,7 +17,12 @@ import { SkillsSection } from './sections/SkillsSection';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
-  const sectionIds = useMemo(() => profileData.navigation.map((item) => item.id), []);
+  const { language, toggleLanguage } = useLanguage();
+  const profileData = useMemo(() => getProfileData(language), [language]);
+  const sectionIds = useMemo(
+    () => profileData.navigation.map((item) => item.id),
+    [profileData.navigation],
+  );
   const activeId = useActiveSection(sectionIds);
 
   useRevealOnScroll();
@@ -28,7 +34,7 @@ function App() {
     if (metaDescription) {
       metaDescription.setAttribute('content', profileData.seo.description);
     }
-  }, []);
+  }, [profileData.seo.description, profileData.seo.title]);
 
   return (
     <div className="relative min-h-screen overflow-x-clip">
@@ -43,6 +49,9 @@ function App() {
         activeId={activeId}
         theme={theme}
         onToggleTheme={toggleTheme}
+        language={language}
+        onToggleLanguage={toggleLanguage}
+        ui={profileData.ui}
       />
 
       <main className="relative">
@@ -55,7 +64,7 @@ function App() {
         <ContactSection data={profileData.sections.contact} />
       </main>
 
-      <FooterSection text={profileData.footer.text} />
+      <FooterSection text={profileData.footer.text} backToTopLabel={profileData.ui.backToTopLabel} />
     </div>
   );
 }

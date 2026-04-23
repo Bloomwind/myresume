@@ -3,10 +3,7 @@ import { Reveal } from '../components/Reveal';
 import { SocialLinks } from '../components/SocialLinks';
 
 export function HeroSection({ hero, links }) {
-  const focus = hero.currentFocus ?? {
-    title: 'Current Focus',
-    items: hero.highlights ?? [],
-  };
+  const focus = hero.currentFocus;
 
   return (
     <section id="home" className="relative scroll-mt-24 overflow-hidden py-16 md:py-24 lg:py-28">
@@ -54,17 +51,21 @@ export function HeroSection({ hero, links }) {
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted">{hero.socialTitle}</p>
             <SocialLinks links={links} />
 
-            <div className="mt-6 border-t border-border/60 pt-5">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted">{focus.title}</p>
-              <ul className="space-y-3 text-sm leading-6 text-muted">
-                {focus.items.map((item) => (
-                  <li key={item} className="flex gap-2.5">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {focus?.items?.length ? (
+              <div className="mt-6 border-t border-border/60 pt-5">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                  {focus.title}
+                </p>
+                <ul className="space-y-3 text-sm leading-6 text-muted">
+                  {focus.items.map((item) => (
+                    <li key={item} className="flex gap-2.5">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </aside>
         </Reveal>
       </div>
