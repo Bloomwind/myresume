@@ -13,7 +13,31 @@ export function ExperienceSection({ data }) {
               <div className="rounded-xl border border-border/70 bg-panel/72 p-5 backdrop-blur-sm md:p-6">
                 <div className="flex flex-col gap-2 border-b border-border/60 pb-4 md:flex-row md:items-start md:justify-between">
                   <div>
-                    <h3 className="font-display text-xl font-semibold text-text">{entry.organization}</h3>
+                    <div className="flex items-start gap-2">
+                      <h3 className="font-display text-xl font-semibold text-text">{entry.organization}</h3>
+                      {entry.organizationUrl ? (
+                        <a
+                          href={entry.organizationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-hover-target mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-muted/75 transition duration-300 hover:bg-accent/10 hover:text-accent hover:shadow-[0_0_12px_hsl(var(--accent)/0.14)]"
+                          aria-label={`${data.labels?.visitOrganizationWebsite}: ${entry.organization}`}
+                          title={data.labels?.visitOrganizationWebsite}
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            className="h-3.5 w-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                          >
+                            <path d="M14 5h5v5" />
+                            <path d="M10 14 19 5" />
+                            <path d="M19 13v4a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2h4" />
+                          </svg>
+                        </a>
+                      ) : null}
+                    </div>
                     <p className="mt-1 text-sm text-muted">{entry.location}</p>
                   </div>
                   <div className="text-sm text-muted md:text-right">

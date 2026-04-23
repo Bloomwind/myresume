@@ -72,9 +72,13 @@ export const zhLocale = {
     experience: {
       badge: '研究与实践',
       title: '围绕 AI 系统与应用落地的研究与工程经历',
+      labels: {
+        visitOrganizationWebsite: '访问机构官网',
+      },
       entries: [
         {
           organization: '加州大学默塞德分校（University of California, Merced）',
+          organizationUrl: 'https://www.ucmerced.edu/',
           location: 'Merced, California, United States',
           period: 'Sep 2025 - Present',
           roles: [
@@ -106,6 +110,7 @@ export const zhLocale = {
         },
         {
           organization: '大数据系统计算技术国家工程实验室',
+          organizationUrl: 'https://bdsc.szu.edu.cn/',
           location: 'Shenzhen, Guangdong, China',
           type: '实习',
           period: 'Feb 2023 - May 2025',
@@ -125,6 +130,7 @@ export const zhLocale = {
         },
         {
           organization: 'GALA Sports Wangchen Technology',
+          organizationUrl: 'https://www.galasports.com/EN/',
           location: 'Shenzhen, Guangdong, China',
           type: '实习',
           period: 'Jul 2023 - Aug 2023',

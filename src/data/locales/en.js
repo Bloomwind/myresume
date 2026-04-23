@@ -77,9 +77,13 @@ export const enLocale = {
     experience: {
       badge: 'Research Experience',
       title: 'Graduate research and engineering experience across AI systems',
+      labels: {
+        visitOrganizationWebsite: 'Open organization website',
+      },
       entries: [
         {
           organization: 'University of California, Merced',
+          organizationUrl: 'https://www.ucmerced.edu/',
           location: 'Merced, California, United States',
           period: 'Sep 2025 - Present',
           roles: [
@@ -111,6 +115,7 @@ export const enLocale = {
         },
         {
           organization: 'National Engineering Laboratory for Big Data System Computing Technology',
+          organizationUrl: 'https://bdsc.szu.edu.cn/',
           location: 'Shenzhen, Guangdong, China',
           type: 'Internship',
           period: 'Feb 2023 - May 2025',
@@ -130,6 +135,7 @@ export const enLocale = {
         },
         {
           organization: 'GALA Sports Wangchen Technology',
+          organizationUrl: 'https://www.galasports.com/EN/',
           location: 'Shenzhen, Guangdong, China',
           type: 'Internship',
           period: 'Jul 2023 - Aug 2023',
