@@ -3,7 +3,6 @@ import { GridPointerField } from './components/GridPointerField';
 import { NavBar } from './components/NavBar';
 import { getProfileData } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
-import { useLanguage } from './hooks/useLanguage';
 import { useRevealOnScroll } from './hooks/useRevealOnScroll';
 import { useTheme } from './hooks/useTheme';
 import { AboutSection } from './sections/AboutSection';
@@ -17,8 +16,7 @@ import { SkillsSection } from './sections/SkillsSection';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
-  const profileData = useMemo(() => getProfileData(language), [language]);
+  const profileData = useMemo(() => getProfileData(), []);
   const sectionIds = useMemo(
     () => profileData.navigation.map((item) => item.id),
     [profileData.navigation],
@@ -28,6 +26,7 @@ function App() {
   useRevealOnScroll();
 
   useEffect(() => {
+    document.documentElement.lang = 'en';
     document.title = profileData.seo.title;
 
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -49,8 +48,6 @@ function App() {
         activeId={activeId}
         theme={theme}
         onToggleTheme={toggleTheme}
-        language={language}
-        onToggleLanguage={toggleLanguage}
         ui={profileData.ui}
       />
 

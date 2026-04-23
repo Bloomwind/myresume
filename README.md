@@ -31,9 +31,9 @@ All profile text and links are centralized in:
 
 - `src/data/profile.js` (shared links + locale composition)
 - `src/data/locales/en.js` (English content)
-- `src/data/locales/zh.js` (Simplified Chinese content)
+- `src/data/locales/zh.js` (Simplified Chinese content, currently not active in UI)
 
-Update locale files to change:
+The UI is currently fixed to English. Update locale files to change:
 
 - Hero copy
 - About/experience/projects/skills/education/contact content
@@ -106,5 +106,5 @@ src/
 - Smooth scrolling
 - Responsive layout for mobile/tablet/desktop
 - Scroll reveal animations
-- Dark mode and language preference are both stored in localStorage
+- Dark mode preference is stored in localStorage
 - SEO title + meta description + favicon placeholder

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BrandTypingTitle } from './BrandTypingTitle';
-import { LanguageToggle } from './LanguageToggle';
 import { ThemeToggle } from './ThemeToggle';
 
 export function NavBar({
@@ -9,8 +8,6 @@ export function NavBar({
   activeId,
   theme,
   onToggleTheme,
-  language,
-  onToggleLanguage,
   ui,
 }) {
   const [open, setOpen] = useState(false);
@@ -63,7 +60,6 @@ export function NavBar({
         </div>
 
         <div className="flex items-center gap-2">
-          <LanguageToggle language={language} labels={ui} onToggle={onToggleLanguage} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} labels={ui?.themeToggle} />
           <button
             type="button"
