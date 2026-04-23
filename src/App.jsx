@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { CursorFollower } from './components/CursorFollower';
+import { GridPointerField } from './components/GridPointerField';
 import { NavBar } from './components/NavBar';
 import { profileData } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip">
-      <CursorFollower />
+      <GridPointerField />
 
       <div className="tech-atmosphere" aria-hidden="true" />
       <div className="tech-grid" aria-hidden="true" />

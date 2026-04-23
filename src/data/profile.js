@@ -32,12 +32,15 @@ export const profileData = {
     name: 'Haoheng Huang',
     headline: 'AI Systems | LLMs | Multimodal AI | Computer Vision',
     intro:
-      'I like building AI systems that move beyond demos into real workflows, especially where modeling, software, and systems design have to work together under real constraints.',
-    highlights: [
-      'Multi-agent LLM pipelines for hardware optimization',
-      'Multimodal and vision-language systems for applied analysis',
-      'Edge deployment and generative AI production workflows',
-    ],
+      'I enjoy building AI systems that move past demos and into real workflows, where models, software, and product decisions have to work together in practice.',
+    currentFocus: {
+      title: 'Current Focus',
+      items: [
+        'Completing my M.S. in Computer Science',
+        'Advancing my GeoAI graduate research project',
+        'Contributing to the VerilogCoder part-time research and engineering project',
+      ],
+    },
     cta: [
       { label: 'View Projects', href: '#projects', style: 'primary' },
       { label: 'Download Resume', href: links.resumePdf, style: 'secondary', type: 'resume' },
@@ -47,9 +50,9 @@ export const profileData = {
   sections: {
     about: {
       badge: 'About Me',
-      title: 'What Drives My Work In AI Systems',
+      title: 'A Little About How I Think',
       summary:
-        'I am a Computer Science graduate student who genuinely enjoys turning AI ideas into systems that people can actually use. What excites me most is the engineering side of AI, where model quality, software architecture, and deployment realities all have to line up to produce something reliable. I am especially drawn to machine learning, computer vision, large language models, multimodal systems, and intelligent automation.\n\nRecently, I have worked on multi-agent LLM workflows for Verilog generation and hardware optimization, OpenROAD-based PPA evaluation pipelines, facial motion recognition on Huawei Ascend edge devices, and Stable Diffusion plus LoRA pipelines for game asset generation. I am currently seeking Summer 2026 internships in AI, machine learning, or software engineering where I can help build impactful systems and keep growing as an engineer.',
+        'I am a Computer Science graduate student who likes building things that are useful outside of a demo setting. I am most interested in AI systems that can actually run in the real world, especially when machine learning, software engineering, and deployment all have to fit together cleanly.\n\nThe problems I enjoy most sit at the intersection of large language models, multimodal AI, computer vision, intelligent automation, and applied AI systems. I like thinking about how the full system behaves, not just how a single model performs in isolation. I am currently pursuing my M.S. and looking for Summer 2026 internships in AI, machine learning, or software engineering.',
     },
     experience: {
       badge: 'Selected Experience',

@@ -3,6 +3,11 @@ import { Reveal } from '../components/Reveal';
 import { SocialLinks } from '../components/SocialLinks';
 
 export function HeroSection({ hero, links }) {
+  const focus = hero.currentFocus ?? {
+    title: 'Current Focus',
+    items: hero.highlights ?? [],
+  };
+
   return (
     <section id="home" className="relative scroll-mt-24 overflow-hidden py-16 md:py-24 lg:py-28">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/12 blur-3xl" />
@@ -50,9 +55,9 @@ export function HeroSection({ hero, links }) {
             <SocialLinks links={links} />
 
             <div className="mt-6 border-t border-border/60 pt-5">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted">Current Focus</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted">{focus.title}</p>
               <ul className="space-y-3 text-sm leading-6 text-muted">
-                {hero.highlights.map((item) => (
+                {focus.items.map((item) => (
                   <li key={item} className="flex gap-2.5">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
                     <span>{item}</span>
