@@ -3,8 +3,9 @@ const links = {
   github: 'https://github.com/karma0929',
   linkedin: 'https://www.linkedin.com/in/haoheng-huang-158295390/',
   email: 'haohenghuang@ucmerced.edu',
-  // Keep this placeholder path until your final resume is ready.
-  resumePdf: '/resume-placeholder.pdf',
+  // Put your resume PDF at: /public/Haoheng_Huang_Resume.pdf
+  // If you rename it, update this path.
+  resumePdf: '/Haoheng_Huang_Resume.pdf',
 };
 
 export const profileData = {
@@ -16,6 +17,13 @@ export const profileData = {
   branding: {
     initials: 'HH',
     accentLabel: 'AI Systems Portfolio',
+    siteBrandText: 'haoheng_huang.ai',
+    siteBrandSubtext: 'AI systems / ML / research',
+    typingBrandSequence: [
+      'initializing portfolio...',
+      'loading profile...',
+      'haoheng_huang.ai',
+    ],
   },
   links,
   navigation: [
@@ -32,7 +40,7 @@ export const profileData = {
     name: 'Haoheng Huang',
     headline: 'AI Systems | LLMs | Multimodal AI | Computer Vision',
     intro:
-      'I enjoy building AI systems that move past demos and into real workflows, where models, software, and product decisions have to work together in practice.',
+      'I enjoy building AI systems that move beyond prototypes and into workflows people can actually use.',
     currentFocus: {
       title: 'Current Focus',
       items: [
@@ -52,7 +60,7 @@ export const profileData = {
       badge: 'About Me',
       title: 'A Little About How I Think',
       summary:
-        'I am a Computer Science graduate student who likes building things that are useful outside of a demo setting. I am most interested in AI systems that can actually run in the real world, especially when machine learning, software engineering, and deployment all have to fit together cleanly.\n\nThe problems I enjoy most sit at the intersection of large language models, multimodal AI, computer vision, intelligent automation, and applied AI systems. I like thinking about how the full system behaves, not just how a single model performs in isolation. I am currently pursuing my M.S. and looking for Summer 2026 internships in AI, machine learning, or software engineering.',
+        'I am a Computer Science graduate student who enjoys building AI systems that are meant to be used, not just demonstrated. What I care about most is the space where machine learning, software systems, and practical deployment meet.\n\nI am especially interested in large language models, multimodal AI, computer vision, intelligent automation, and applied AI systems. I like working on problems where the whole pipeline matters and where different parts of a system have to work well together. I am currently pursuing my M.S. and looking for Summer 2026 internship opportunities in AI, machine learning, or software engineering.',
     },
     experience: {
       badge: 'Selected Experience',
@@ -62,11 +70,11 @@ export const profileData = {
           organization: 'University of California, Merced',
           location: 'Merced, California, United States · Remote',
           type: 'Part-time',
-          period: 'Oct 2025 - Present',
+          period: 'Sep 2025 - Present',
           roles: [
             {
               title: 'Research Assistant - AI Hardware Design (VerilogCoder Project)',
-              period: 'Oct 2025 - Present',
+              period: 'Sep 2025 - Present',
               points: [
                 'Developed a multi-agent LLM-based system for automated Verilog code generation and optimization.',
                 'Integrated OpenROAD-flow to evaluate PPA (power, performance, area) metrics for generated hardware designs.',
@@ -207,6 +215,8 @@ export const profileData = {
           school: 'University of California, Merced',
           degree: 'Master of Science - MS',
           field: 'Computer Science',
+          department: 'EECS',
+          advisor: 'Shawn Newsam',
           period: '2025 - 2027',
         },
         {
@@ -227,9 +237,9 @@ export const profileData = {
     },
     contact: {
       badge: 'Contact',
-      title: 'Open to Summer 2026 AI/ML/SWE internship opportunities',
+      title: 'Let’s Connect',
       note:
-        'If you are hiring for internship roles or collaborating on applied AI research and engineering, I would love to connect.',
+        'I am always happy to connect around AI systems, applied ML, research ideas, and interesting engineering work. If you want to collaborate, discuss opportunities, or just talk through technical ideas, feel free to reach out.',
       buttons: [
         {
           label: 'Send Email',

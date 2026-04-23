@@ -5,7 +5,7 @@ export function ThemeToggle({ theme, onToggle }) {
     <button
       type="button"
       onClick={onToggle}
-      className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/70 text-text transition duration-300 hover:-translate-y-0.5 hover:border-accent/70 hover:text-accent"
+      className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/72 text-text transition duration-300 hover:-translate-y-0.5 hover:border-accent/65 hover:text-accent"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (

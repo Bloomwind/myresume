@@ -1,23 +1,27 @@
 import { useState } from 'react';
+import { BrandTypingTitle } from './BrandTypingTitle';
 import { ThemeToggle } from './ThemeToggle';
 
 export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-bg/70 backdrop-blur-2xl">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-bg/82 backdrop-blur-2xl">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/22 to-transparent" />
       <nav
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8"
         aria-label="Main navigation"
       >
         <a href="#home" className="cursor-hover-target inline-flex items-center gap-3" aria-label="Go to top">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md border border-accent/40 bg-panel/80 font-display text-sm font-semibold text-text shadow-[0_0_24px_hsl(var(--accent)/0.22)]">
-            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md border border-accent/30 bg-panel/92 font-display text-sm font-semibold text-text shadow-[0_0_14px_hsl(var(--accent)/0.1)]">
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent" />
             {branding.initials}
           </span>
-          <span className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-muted sm:block">
-            {branding.accentLabel}
+          <span className="flex min-w-0 flex-col leading-tight">
+            <BrandTypingTitle branding={branding} />
+            <span className="hidden max-w-[17rem] truncate font-mono text-[10px] uppercase tracking-[0.14em] text-muted/85 sm:block">
+              {branding.siteBrandSubtext}
+            </span>
           </span>
         </a>
 
@@ -49,7 +53,7 @@ export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
-            className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/70 text-text transition hover:border-accent/70 hover:text-accent md:hidden"
+            className="cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/70 bg-panel/72 text-text transition hover:border-accent/65 hover:text-accent md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -59,7 +63,7 @@ export function NavBar({ branding, navItems, activeId, theme, onToggleTheme }) {
       </nav>
 
       {open ? (
-        <div className="border-t border-border/60 bg-bg/95 px-6 py-3 backdrop-blur-2xl md:hidden">
+        <div className="border-t border-border/70 bg-bg/95 px-6 py-3 backdrop-blur-2xl md:hidden">
           <div className="flex flex-col gap-1">
             {navItems.map((item) => {
               const isActive = activeId === item.id;

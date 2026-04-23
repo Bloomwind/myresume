@@ -2,11 +2,11 @@ import { resolveLink } from '../utils/links';
 
 const STYLE_MAP = {
   primary:
-    'border border-accent/80 bg-accent/90 text-white shadow-[0_0_0_1px_hsl(var(--accent)/0.2)] hover:-translate-y-0.5 hover:bg-accent-strong hover:shadow-[0_0_30px_hsl(var(--accent)/0.3)]',
+    'border border-accent/70 bg-accent/14 text-accent shadow-[0_0_0_1px_hsl(var(--accent)/0.2)] hover:-translate-y-0.5 hover:bg-accent/22 hover:text-text hover:shadow-[0_0_22px_hsl(var(--accent)/0.2)]',
   secondary:
-    'border border-border/80 bg-panel/70 text-text hover:-translate-y-0.5 hover:border-accent/70 hover:text-accent',
+    'border border-border/80 bg-panel/72 text-text hover:-translate-y-0.5 hover:border-accent/60 hover:text-accent',
   ghost:
-    'border border-border/30 bg-transparent text-text hover:-translate-y-0.5 hover:border-accent/70 hover:bg-panel/60',
+    'border border-border/45 bg-transparent text-muted hover:-translate-y-0.5 hover:border-accent/55 hover:bg-panel/52 hover:text-text',
   disabled:
     'cursor-not-allowed border border-border/40 bg-panel/40 text-muted opacity-70',
 };

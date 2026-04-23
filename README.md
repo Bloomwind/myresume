@@ -46,7 +46,14 @@ Default placeholders are in `src/data/profile.js`:
 - `links.email`
 - `links.resumePdf`
 
-A starter file exists at `public/resume-placeholder.pdf`. Replace it with your real resume PDF and keep the same path, or update `links.resumePdf`.
+Resume placement (exact):
+
+1. Put your PDF inside `public/`.
+2. Use this filename: `Haoheng_Huang_Resume.pdf`
+3. Final path should be: `public/Haoheng_Huang_Resume.pdf`
+4. In `src/data/profile.js`, ensure `links.resumePdf` is set to `/Haoheng_Huang_Resume.pdf`
+
+If you rename the file, only update `links.resumePdf` in `src/data/profile.js`.
 
 ## Deployment
 

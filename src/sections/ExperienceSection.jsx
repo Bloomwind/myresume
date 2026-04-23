@@ -8,9 +8,9 @@ export function ExperienceSection({ data }) {
         {data.entries.map((entry, idx) => (
           <Reveal key={`${entry.organization}-${entry.period}`} delay={idx * 70}>
             <li className="relative">
-              <span className="absolute -left-[1.86rem] top-1.5 h-3 w-3 rounded-full border border-accent/70 bg-accent/60 shadow-[0_0_12px_hsl(var(--accent)/0.5)] md:-left-[2.35rem]" />
+              <span className="absolute -left-[1.86rem] top-1.5 h-3 w-3 rounded-full border border-accent/60 bg-accent/48 shadow-[0_0_10px_hsl(var(--accent)/0.28)] md:-left-[2.35rem]" />
 
-              <div className="rounded-xl border border-border/70 bg-panel/55 p-5 backdrop-blur-sm md:p-6">
+              <div className="rounded-xl border border-border/70 bg-panel/72 p-5 backdrop-blur-sm md:p-6">
                 <div className="flex flex-col gap-2 border-b border-border/60 pb-4 md:flex-row md:items-start md:justify-between">
                   <div>
                     <h3 className="font-display text-xl font-semibold text-text">{entry.organization}</h3>

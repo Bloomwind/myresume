@@ -10,7 +10,7 @@ export function HeroSection({ hero, links }) {
 
   return (
     <section id="home" className="relative scroll-mt-24 overflow-hidden py-16 md:py-24 lg:py-28">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/12 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/8 blur-3xl" />
 
       <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1fr_360px] lg:gap-12 lg:px-8">
         <div>
@@ -48,8 +48,8 @@ export function HeroSection({ hero, links }) {
         </div>
 
         <Reveal delay={260} className="self-start lg:mt-2">
-          <aside className="relative overflow-hidden rounded-2xl border border-border/70 bg-panel/55 p-6 shadow-soft backdrop-blur-md">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+          <aside className="relative overflow-hidden rounded-2xl border border-border/70 bg-panel/72 p-6 shadow-soft backdrop-blur-md">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
 
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted">{hero.socialTitle}</p>
             <SocialLinks links={links} />

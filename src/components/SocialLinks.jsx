@@ -28,7 +28,7 @@ export function SocialLinks({ links, className = '' }) {
         });
 
         const baseClass =
-          'cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border bg-panel/60 text-muted transition duration-300';
+          'cursor-hover-target inline-flex h-10 w-10 items-center justify-center rounded-md border bg-panel/72 text-muted transition duration-300';
 
         if (link.isDisabled) {
           return (
@@ -55,7 +55,7 @@ export function SocialLinks({ links, className = '' }) {
             href={link.href}
             target={link.isExternal ? '_blank' : undefined}
             rel={link.isExternal ? 'noopener noreferrer' : undefined}
-            className={`${baseClass} border-border/70 hover:-translate-y-0.5 hover:border-accent/70 hover:text-accent hover:shadow-[0_0_25px_hsl(var(--accent)/0.26)]`}
+            className={`${baseClass} border-border/70 hover:-translate-y-0.5 hover:border-accent/58 hover:text-accent hover:shadow-[0_0_14px_hsl(var(--accent)/0.16)]`}
             aria-label={item.label}
             title={item.label}
           >

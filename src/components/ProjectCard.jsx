@@ -23,7 +23,7 @@ function ActionLink({ label, href }) {
       href={link.href}
       target={link.isExternal ? '_blank' : undefined}
       rel={link.isExternal ? 'noopener noreferrer' : undefined}
-      className={`${baseClass} border-border/70 bg-panel/60 text-text hover:-translate-y-0.5 hover:border-accent/70 hover:text-accent hover:shadow-[0_0_24px_hsl(var(--accent)/0.22)]`}
+      className={`${baseClass} border-border/70 bg-panel/72 text-text hover:-translate-y-0.5 hover:border-accent/58 hover:text-accent hover:shadow-[0_0_16px_hsl(var(--accent)/0.14)]`}
     >
       {label}
       {link.isExternal ? <span className="ml-1.5 text-xs opacity-75">↗</span> : null}
@@ -33,8 +33,8 @@ function ActionLink({ label, href }) {
 
 export function ProjectCard({ project }) {
   return (
-    <article className="cursor-hover-target group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-panel/55 p-6 shadow-soft backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_12px_45px_-20px_hsl(var(--accent)/0.45)]">
-      <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-accent/10 blur-3xl transition duration-500 group-hover:bg-accent/20" />
+    <article className="cursor-hover-target group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-panel/72 p-6 shadow-soft backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-accent/55 hover:shadow-[0_10px_28px_-18px_hsl(var(--accent)/0.28)]">
+      <div className="pointer-events-none absolute -right-24 -top-24 h-44 w-44 rounded-full bg-accent/7 blur-3xl transition duration-500 group-hover:bg-accent/12" />
 
       <h3 className="font-display text-xl font-semibold leading-tight text-text">{project.title}</h3>
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-accent/90">{project.period}</p>

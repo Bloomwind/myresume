@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['Space Grotesk', 'IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       boxShadow: {
         soft: '0 20px 60px -24px rgba(15, 23, 42, 0.35)',
